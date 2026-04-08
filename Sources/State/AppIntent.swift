@@ -4,4 +4,6 @@ enum AppIntent {
     case executeSelectedContract
     case dismissOutcome
     case advanceCycle
+    case selectPreviewColony(String)
+    case selectPreviewDestination(AppDestination)
 }

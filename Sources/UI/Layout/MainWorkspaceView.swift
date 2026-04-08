@@ -27,10 +27,7 @@ struct MainWorkspaceView: View {
         case .novaDrift:
             NovaDriftScreen(store: store, context: context)
         case .dockside:
-            PlaceholderScreen(
-                title: "Dockside",
-                bodyText: "Civic infrastructure, transit, market, and bank systems will anchor the grounded side of the world."
-            )
+            ThemePreviewScreen(store: store)
         case .workbench:
             PlaceholderScreen(
                 title: "Workbench",

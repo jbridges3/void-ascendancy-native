@@ -37,6 +37,14 @@ final class AppStore {
                 ),
                 at: 0
             )
+
+        case .selectPreviewColony(let id):
+            if let colony = previewColonies.first(where: { $0.id == id }) {
+                state.previewColony = colony
+            }
+
+        case .selectPreviewDestination(let destination):
+            state.previewDestination = destination
         }
     }
 
@@ -49,6 +57,18 @@ final class AppStore {
         VisualContextResolver.resolve(
             destination: state.selectedDestination,
             colony: state.selectedColony,
+            player: state.player
+        )
+    }
+
+    var previewColonies: [Colony] {
+        SeedData.previewColonies
+    }
+
+    var previewVisualContext: VisualContext {
+        VisualContextResolver.resolve(
+            destination: state.previewDestination,
+            colony: state.previewColony,
             player: state.player
         )
     }

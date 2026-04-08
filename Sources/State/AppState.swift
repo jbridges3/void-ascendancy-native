@@ -6,4 +6,6 @@ struct AppState {
     var selectedColony: Colony
     var contracts: [Contract]
     var notices: [Notice]
+    var previewColony: Colony
+    var previewDestination: AppDestination
 }
