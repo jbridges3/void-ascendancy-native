@@ -8,10 +8,10 @@ struct QuartersScreen: View {
         VStack(alignment: .leading, spacing: 20) {
             SurfaceCard(title: "Quarters", context: context) {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("A private operational shell holds together for now. Exterior systems remain less certain.")
+                    Text("A sterile operational shell curves around the user without warmth, but not without intent.")
                         .font(.title3)
                         .foregroundStyle(context.palette.primaryText)
-                    Text("The space is calm, but not untouched. Notices gather at the edges before they ask to be read.")
+                    Text("Clean surfaces, low noise, and controlled light establish baseline trust. Personality should live in selective glow, not in structural disorder.")
                         .font(.body)
                         .foregroundStyle(context.palette.secondaryText)
                 }
@@ -43,6 +43,20 @@ struct QuartersScreen: View {
                         }
                         .buttonStyle(.bordered)
                     }
+                }
+            }
+
+            SurfaceCard(title: "Interface Glow", context: context) {
+                HStack(spacing: 14) {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(context.palette.accent.opacity(0.40))
+                        .frame(height: 70)
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.white.opacity(0.85))
+                        .frame(height: 70)
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(context.palette.accentSecondary.opacity(0.65))
+                        .frame(height: 70)
                 }
             }
         }

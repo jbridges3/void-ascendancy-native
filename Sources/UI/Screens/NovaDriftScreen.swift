@@ -7,9 +7,13 @@ struct NovaDriftScreen: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             SurfaceCard(title: "Nova Drift", context: context) {
-                Text("Contracts surface as partial truths. The interface offers posture, not certainty.")
-                    .font(.title3)
-                    .foregroundStyle(context.palette.primaryText)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("The goggles close the distance. Drift is not a menu layer. It is full immersion into synthetic signal-space.")
+                        .font(.title3)
+                        .foregroundStyle(context.palette.primaryText)
+                    Text("Presentation should be bold, saturated, and unashamedly cybernetic. It gives posture, temptation, and danger before it gives facts.")
+                        .foregroundStyle(context.palette.secondaryText)
+                }
             }
 
             ForEach(store.state.contracts) { contract in
@@ -46,6 +50,14 @@ struct NovaDriftScreen: View {
                 }
             }
 
+            SurfaceCard(title: "Signal Layer", context: context) {
+                HStack(spacing: 12) {
+                    neonStrip(color: context.palette.accent, width: 140)
+                    neonStrip(color: context.palette.accentSecondary, width: 110)
+                    neonStrip(color: Color(hex: "7C4DFF"), width: 90)
+                }
+            }
+
             if let outcome = store.state.activeOutcome {
                 SurfaceCard(title: "Outcome", context: context) {
                     VStack(alignment: .leading, spacing: 10) {
@@ -60,5 +72,12 @@ struct NovaDriftScreen: View {
                 }
             }
         }
+    }
+
+    private func neonStrip(color: Color, width: CGFloat) -> some View {
+        Capsule()
+            .fill(color.opacity(0.95))
+            .frame(width: width, height: 12)
+            .shadow(color: color.opacity(0.55), radius: 18, x: 0, y: 0)
     }
 }

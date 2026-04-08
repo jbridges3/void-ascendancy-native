@@ -6,7 +6,7 @@ struct MainWorkspaceView: View {
 
     var body: some View {
         ZStack {
-            context.palette.background
+            workspaceAtmosphere
                 .ignoresSafeArea()
 
             ScrollView {
@@ -15,6 +15,50 @@ struct MainWorkspaceView: View {
                     content
                 }
                 .padding(28)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var workspaceAtmosphere: some View {
+        if context.destination == .novaDrift {
+            ZStack {
+                context.palette.background
+                RadialGradient(
+                    colors: [
+                        context.palette.accent.opacity(0.22),
+                        .clear
+                    ],
+                    center: .topTrailing,
+                    startRadius: 60,
+                    endRadius: 420
+                )
+                .blur(radius: 28)
+
+                RadialGradient(
+                    colors: [
+                        context.palette.accentSecondary.opacity(0.20),
+                        .clear
+                    ],
+                    center: .bottomLeading,
+                    startRadius: 40,
+                    endRadius: 360
+                )
+                .blur(radius: 24)
+            }
+        } else {
+            ZStack {
+                context.palette.background
+                RadialGradient(
+                    colors: [
+                        context.palette.accent.opacity(context.anomalyAllowance == .expressive ? 0.10 : 0.04),
+                        .clear
+                    ],
+                    center: .topTrailing,
+                    startRadius: 80,
+                    endRadius: 520
+                )
+                .blur(radius: 30)
             }
         }
     }

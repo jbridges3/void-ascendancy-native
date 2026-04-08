@@ -16,11 +16,50 @@ struct SurfaceCard<Content: View>: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(context.palette.panel.opacity(0.92))
+        .background(cardBackground)
         .overlay {
-            RoundedRectangle(cornerRadius: 18)
-                .stroke(context.palette.border.opacity(0.75), lineWidth: 1)
+            cardShape
+                .stroke(context.palette.border.opacity(context.destination == .novaDrift ? 0.95 : 0.75), lineWidth: 1)
         }
-        .clipShape(RoundedRectangle(cornerRadius: 18))
+        .shadow(color: context.palette.accent.opacity(0.08), radius: 18, x: 0, y: 8)
+        .clipShape(cardShape)
+    }
+
+    @ViewBuilder
+    private var cardBackground: some View {
+        if context.destination == .novaDrift {
+            LinearGradient(
+                colors: [
+                    context.palette.panel.opacity(0.98),
+                    context.palette.elevated.opacity(0.92)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .overlay(
+                LinearGradient(
+                    colors: [
+                        context.palette.accent.opacity(0.10),
+                        .clear,
+                        context.palette.accentSecondary.opacity(0.08)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+        } else {
+            LinearGradient(
+                colors: [
+                    context.palette.panel.opacity(0.96),
+                    context.palette.elevated.opacity(0.88)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        }
+    }
+
+    private var cardShape: RoundedRectangle {
+        RoundedRectangle(cornerRadius: context.destination == .quarters ? 28 : 18, style: .continuous)
     }
 }

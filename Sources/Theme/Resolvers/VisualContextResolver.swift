@@ -79,25 +79,25 @@ enum VisualContextResolver {
         switch destination {
         case .quarters:
             return ResolvedPalette(
-                background: Color(hex: "11151C"),
-                elevated: Color(hex: "1A202A"),
-                panel: Color(hex: "202733"),
-                primaryText: Color(hex: "E7EDF7"),
-                secondaryText: Color(hex: "9CA7B8"),
-                accent: Color(hex: "71839A"),
-                accentSecondary: Color(hex: "3B4658"),
-                border: Color(hex: "2B3545")
+                background: Color(hex: "DCE3EA"),
+                elevated: Color(hex: "EEF3F7"),
+                panel: Color(hex: "F7FAFC"),
+                primaryText: Color(hex: "202A35"),
+                secondaryText: Color(hex: "617080"),
+                accent: Color(hex: "91A9C2"),
+                accentSecondary: Color(hex: "C4D3E0"),
+                border: Color(hex: "D3DEE8")
             )
         case .novaDrift:
             return ResolvedPalette(
-                background: Color(hex: "0C0F16"),
-                elevated: Color(hex: "171B25"),
-                panel: Color(hex: "1D2430"),
-                primaryText: Color(hex: "E7EDF7"),
-                secondaryText: Color(hex: "9CA7B8"),
-                accent: Color(hex: "6A7390"),
-                accentSecondary: Color(hex: "34405A"),
-                border: Color(hex: "2B3545")
+                background: Color(hex: "080510"),
+                elevated: Color(hex: "140A24"),
+                panel: Color(hex: "1B1030"),
+                primaryText: Color(hex: "F7EEFF"),
+                secondaryText: Color(hex: "C9B5E8"),
+                accent: Color(hex: "FF4FD8"),
+                accentSecondary: Color(hex: "47C7FF"),
+                border: Color(hex: "7C4DFF")
             )
         case .dockside:
             return ResolvedPalette(

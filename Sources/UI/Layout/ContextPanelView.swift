@@ -35,6 +35,29 @@ struct ContextPanelView: View {
             Spacer()
         }
         .padding(.horizontal, 18)
-        .background(context.palette.elevated)
+        .background(panelBackground)
+    }
+
+    @ViewBuilder
+    private var panelBackground: some View {
+        if context.destination == .novaDrift {
+            LinearGradient(
+                colors: [
+                    Color(hex: "120A20"),
+                    context.palette.panel.opacity(0.95)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        } else {
+            LinearGradient(
+                colors: [
+                    context.palette.elevated,
+                    context.palette.panel.opacity(0.96)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
     }
 }
