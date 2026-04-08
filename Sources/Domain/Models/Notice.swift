@@ -1,3 +1,5 @@
+import Foundation
+
 struct Notice: Identifiable {
     enum Kind {
         case system
